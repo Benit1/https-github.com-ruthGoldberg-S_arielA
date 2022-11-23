@@ -38,16 +38,16 @@ libclassloops.so: $(OBJECTS_BASIC) $(OBJECTS_LOOP)
 
 
 $(OBJECTS_BASIC): basicClassification.c NumClass.h
-	$(CC) -c basicClassification.c 
+	$(CC) -fPIC $(FLAGS) -c basicClassification.c 
 
 $(OBJECTS_LOOP): advancedClassificationLoop.c NumClass.h
-	$(CC) -c advancedClassificationLoop.c
+	$(CC) -fPIC $(FLAGS) -c advancedClassificationLoop.c
 
 $(OBJECTS_RECURSION): advancedClassificationRecursion.c NumClass.h	
-	$(CC) -c advancedClassificationRecursion.c
+	$(CC) -fPIC $(FLAGS) -c advancedClassificationRecursion.c
 
 $(OBJECTS_MAIN): main.c NumClass.h
-	$(CC) $(FLAGS) -c main.c
+	$(CC)  -fPIC $(FLAGS) -c main.c
 
 .PHONY: clean all
 clean:
