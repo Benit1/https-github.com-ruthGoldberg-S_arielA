@@ -20,31 +20,29 @@ int length (int n){
     return count;
 }
 
+int is_ArmstrongRec(int n , int originalLen, int currentLen){
+    if(currentLen == 0)
+    	return 0;
+    return is_ArmstrongRec(n/10 , originalLen , currentLen-1) + my_pow(n%10 , originalLen);		
+}
 int isArmstrong(int num){
-	int same_num = num;
     int len= length(num);
-    int sum = 0;
-   if (num ==0){
-       return 0;
-   }
-   sum=(my_pow(num%10,len) +isArmstrong(num/10));
-   if(sum == same_num){
-       return 1;
-   }
-    return 0;
+    int sum = is_ArmstrongRec(num , len , len);
+    if(sum == num)
+    	return 1;
+    return 0;	
 }
 
-int isPalindrome(int num){
-	int same_num = num;
-        int digit;
-        int reversed=0;
-        if(num=0) {
-            return 0;
-        }
-        digit=num%10;
-        reversed=(reversed * 10 + digit )+isPalindrome(num/10);
-        if(reversed ==same_num) {
-            return 1;
-        }
+int reversNum(int num , int len){
+    if(num == 0)
+        return 0;
+    return ((num%10 * my_pow(10,len-1)) + reversNum(num/10,len-1));
+}
+
+int isPalindrome(int num){	
+    int len= length(num);
+    int sum = reversNum(num , len);
+    if(sum == num)
+    	return 1;
     return 0;
 }

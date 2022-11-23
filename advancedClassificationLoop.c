@@ -39,15 +39,15 @@ int isArmstrong(int num){
 int isPalindrome(int num){
     int remain, reversed=0;
     int same_num = num;
-    while(same_num!=0){
-        remain = same_num%10;
+    while(num!=0){
+        remain = num%10;
         reversed += remain;
-		if(same_num < 10)
+		if(num < 10)
 			break;
 		reversed*=10;
-        same_num/=10;
+        num/=10;
     }
-    if (reversed == num){
+    if (reversed == same_num){
         return 1;
     }
     return 0;
