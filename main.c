@@ -4,7 +4,6 @@
 
 int main() {
     int num1,num2;
-    printf("please enter two numbers :");
     scanf("%d %d \n" , &num1,&num2);
 
     printf("The Armstrong numbers are:");
