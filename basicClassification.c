@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "NumClass.h"
 
-int factorial (int n){
+int factorial (int n){ //function for factorial calculation
     int fact = 1;
     for(int i = 1 ; i <=n ; i++){
         fact*=i;
@@ -10,15 +10,18 @@ int factorial (int n){
 }
 
 int isPrime(int num ){
-    for(int i = 2 ; i<num ; i++){
-        if (num % i == 0){
+    if (num == 0)
+        return 0;
+    for(int i = 2 ; i<=num/2 ; i++){
+        if (num % i == 0)
             return 0;
-        }
     }
     return 1;
 }
 int isStrong(int num){
-	int original_num = num;
+    if(num == 0)
+       return 0;
+    int original_num = num;
     int sum=0;
     while (num != 0){
         int digit = num%10;

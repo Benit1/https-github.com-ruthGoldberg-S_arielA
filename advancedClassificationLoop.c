@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "NumClass.h"
 
-int my_pow(int x, int y){
+int my_pow(int x, int y){ //function for power calculation
 	int xpowy=1;
 	if (x == 0 )
 		return 0;
@@ -12,7 +12,7 @@ int my_pow(int x, int y){
 }
 
 
-int length (int n){
+int length (int n){ //function for length number calculation
     int count = 0;
     while(n != 0){
         count++;
@@ -22,12 +22,14 @@ int length (int n){
 }
 
 int isArmstrong(int num){
-	int original_num = num;
+    int original_num = num;
     int sum=0;
     int len = length(num);
+    if(len == 1)
+       return 1;
     while (num != 0){
-        int digit = num%10;
-        sum +=my_pow(digit,len);
+        int digit = num % 10;
+        sum += my_pow(digit,len);
         num/=10;
     }
     if (sum == original_num){
@@ -40,11 +42,11 @@ int isPalindrome(int num){
     int remain, reversed=0;
     int same_num = num;
     while(num!=0){
-        remain = num%10;
+        remain = num % 10;
         reversed += remain;
-		if(num < 10)
-			break;
-		reversed*=10;
+	if(num < 10)
+	   break;
+	reversed*=10;
         num/=10;
     }
     if (reversed == same_num){
