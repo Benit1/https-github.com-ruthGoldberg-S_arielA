@@ -9,10 +9,21 @@ int factorial (int n){ //function for factorial calculation
     return fact;
 }
 
+float my_sqrt(int num){
+    float sqt=num/2;   
+    float temp=0;
+    while(sqt!=temp){ 
+	temp=sqt; 
+	sqt=(num/temp+temp)/2;
+    }
+    return sqt;
+}
+
 int isPrime(int num ){
     if (num == 0)
         return 0;
-    for(int i = 2 ; i<=num/2 ; i++){
+    int sqrt= my_sqrt(num);
+    for(int i = 2 ; i<=sqrt ; i++){
         if (num % i == 0)
             return 0;
     }
