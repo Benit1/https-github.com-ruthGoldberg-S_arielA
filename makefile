@@ -47,7 +47,7 @@ $(OBJECTS_RECURSION): advancedClassificationRecursion.c NumClass.h
 	$(CC) -fPIC $(FLAGS) -c advancedClassificationRecursion.c
 
 $(OBJECTS_MAIN): main.c NumClass.h
-	$(CC)  -fPIC $(FLAGS) -c main.c
+	$(CC) $(FLAGS) -c main.c
 
 .PHONY: clean all
 clean:
